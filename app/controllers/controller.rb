@@ -29,7 +29,7 @@ class Controller
   end
 
   def generate_yelp_search(username)
-    View.render("Where are you? (City/Address/Zipcode/Neighborhood")
+    View.render("Where do you want to search? (City/Address/Zipcode/Neighborhood")
     location = gets.chomp
     View.food_choices
     category = gets.chomp
