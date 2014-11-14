@@ -4,6 +4,8 @@ module View
     puts "\n\n"
   end
   def self.welcome
+    clear_screen!
+    move_to_home!
 puts <<-STRING
 ==================================================================
     Welcome to the Adequate Restaurant Suggestion App
@@ -17,12 +19,13 @@ STRING
     # pick = business_array.sample
     puts <<-STRING
 
-
-    Here's a Restaurant:
-Restaurant:    #{business.name}
+==================================================================
+Here's a Suggestion:
+Name:    #{business.name}
 Location:    #{business.location}
 Rating:    #{business.rating}
 Review:    #{business.review}
+==================================================================
     STRING
   end
 
@@ -50,6 +53,14 @@ Choose one. Or not.
     user = User.where("name = '#{username}'").first.businesses
     user.each { |business| puts "#{business.id}. #{business.name}" }
     puts "=================================================================="
+  end
+  def self.clear_screen!
+    print "\e[2J"
+  end
+
+# Moves cursor to the top left of the terminal
+  def self.move_to_home!
+    print "\e[H"
   end
 end
 
